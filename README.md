@@ -5,7 +5,7 @@ To do this I would need to learn how to use and navigate the Facebook API in ord
 
 First, I search for Meta developer resources that would guide me towards what I need. I then reach the Meta Developer Docs and read about the Facebook API structure:
 
-1. Facebook API uses the term 'Edges' to describe connections between objects
+1. Facebook API uses the term 'Edges' to describe connections between objects (a Graph API).
 2. Facebook uses access tokens to allow developers access to the Facebook API (within the token scope/restrictions).
    There are 2 relevant types of tokens for this project:
    User-Access-Token: Temporary token that allow reading the user's data
