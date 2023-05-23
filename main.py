@@ -10,7 +10,13 @@ id = '739297514555981'
 
 def main():
     FacebookAdsApi.init(app_id, app_secret, access_token)
-
+    
+    fields = [
+        'name',
+        'start_time'
+    ]
+    campaigns = AdAccount('act_'+id).get_campaigns(fields)
+    print(campaigns)
 
 if __name__ == '__main__':
     main()
