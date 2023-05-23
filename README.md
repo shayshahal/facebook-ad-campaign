@@ -11,4 +11,4 @@ First, I search for Meta developer resources that would guide me towards what I 
    User-Access-Token: Temporary token that allow reading the user's data
    App-Access-Token: Permanent token that is able to be generated after you create an App in the Facebook for Developers site. This token allows the developer to connect and make request with the Facebook API.
 
-Lastly I read about the Facebook-python-business-sdk [link](https://github.com/facebook/facebook-python-business-sdk) and use the example that is given to similarly initialize the api and make the request for the campaigns.
+Lastly I read about the [Facebook-python-business-sdk](https://github.com/facebook/facebook-python-business-sdk) and use the example that is given to similarly initialize the api and make the request for the campaigns.
