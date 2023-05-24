@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>campaigns</title>
+	</head>
+	<body>
+		<ul>
+			{% for campaign in campaigns %}
+			<li>
+				name: {{campaign['name']}} <br />
+				start_time: {{campaign['start_time']}} <br />
+			</li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>
