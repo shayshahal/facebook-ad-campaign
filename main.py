@@ -1,16 +1,23 @@
+import os
 from facebook_business.adobjects.adaccount import AdAccount
 from facebook_business.api import FacebookAdsApi
+from flask import Flask
+from flask import render_template
+from dotenv import load_dotenv
 
-# Variables, usually should be hidden but here it doesn't really matter
-access_token = 'EAANhwOe7TpABAAoaBm8yHgqqZANAIUBDWW4xcgvyDeTlFwZBz4IaRMc97v7bvNQZCwfQmYpGZAKVbqNgS3lc27TOdWA3zZBuERff1BGmOiapAzZAi6uAAsQ7dgD5TcOsMuR9SCkLdhRrTjNzYXFCxlxk2DZAEQFm777HmcgJZBa48ug9BjSqdHQOtnhjPUz9gSsZD'
-app_secret = '08befff363aea705da35d1633c3bd701'
-app_id = '951906079559312'
-id = '739297514555981'
+app = Flask(__name__)
+load_dotenv()
 
 
-def main():
-    # setting up the api
-    FacebookAdsApi.init(app_id, app_secret, access_token)
+@app.route('/')
+def index():
+    return '<a href="/campaigns">go to campaigns</a>'
+
+
+@app.route("/campaigns")
+def campaigns():
+    FacebookAdsApi.init(os.getenv('APP_ID'), os.getenv(
+        'APP_SECRET'), os.getenv('ACCESS_TOKEN'))
 
     # fields to be printed
     fields = [
@@ -19,13 +26,9 @@ def main():
     ]
 
     # api get call for all campaigns
-    campaigns = AdAccount('act_'+id).get_campaigns(fields)
+    campaigns = AdAccount('act_'+os.getenv('ID')).get_campaigns(fields)
 
-    # print campaigns
-    for campaign in campaigns:
-        print('name: ' + campaign['name'] +
-              '\nstart time: ' + campaign['start_time'])
-
+    return render_template('campaigns.html', campaigns=campaigns)
 
 if __name__ == '__main__':
-    main()
+    app.run(port=3000)
